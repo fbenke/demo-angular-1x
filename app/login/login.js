@@ -1,6 +1,6 @@
 'use strict';
  
-angular.module('workout.login', ['ngRoute'])
+angular.module('myWorkout.login', ['ngRoute'])
  
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/login', {
@@ -10,7 +10,8 @@ angular.module('workout.login', ['ngRoute'])
 }])
 
 
-.controller('LoginCtrl', [function() {
+.controller('LoginCtrl', ['$scope', 'auth', function($scope, auth) {
+
 
 }]); 
 

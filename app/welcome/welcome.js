@@ -1,6 +1,6 @@
 'use strict';
  
-angular.module('workout.welcome', ['ngRoute'])
+angular.module('myWorkout.welcome', ['ngRoute'])
  
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/welcome', {
@@ -11,5 +11,5 @@ angular.module('workout.welcome', ['ngRoute'])
 
 
 .controller('WelcomeCtrl', [function() {
-
+	
 }]); 

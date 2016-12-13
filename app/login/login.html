@@ -1,3 +1,13 @@
 <p>
-<fb:login-button show-faces="true" max-rows="1" size="large"></fb:login-button>
+
+	<div ng-show="!auth.isLoggedIn()">
+		<button type="button" class="btn btn-primary btn-large" ng-disabled="!auth.ready()" ng-click="auth.logIn();">Login with Facebook</button>
+	</div>
+	<div ng-show="auth.isLoggedIn()">
+		Hi {{session.getUser() }}!
+		<button type="button" class="btn btn-danger btn-large" ng-disabled="!auth.ready" data-ng-click="auth.logOut()">Logout</button>
+	  
+	</div>
+
+
 </p>
