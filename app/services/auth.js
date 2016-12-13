@@ -1,8 +1,8 @@
 'use strict';
 
-app.service('auth', ['session', 'Facebook', function(session, Facebook){
+app.service('auth', ['$location', 'session', 'Facebook', function($location, session, Facebook){
 
-  this.isLoggedIn = function isLoggedIn(){
+  this.isLoggedIn = function(){
     return session.getUser() !== null;
   };
 
@@ -12,6 +12,7 @@ app.service('auth', ['session', 'Facebook', function(session, Facebook){
         session.setAccessToken(response.authResponse.accessToken);
         Facebook.api('/me', function(response) {
           session.setUser(response.name);
+          $location.path('/profile');
         });
       } else {
 
@@ -20,6 +21,7 @@ app.service('auth', ['session', 'Facebook', function(session, Facebook){
             session.setAccessToken(response.authResponse.accessToken);
             Facebook.api('/me', function(response) {
               session.setUser(response.name);
+              $location.path('/profile');
             });
           }
         });
@@ -30,6 +32,7 @@ app.service('auth', ['session', 'Facebook', function(session, Facebook){
   this.logOut = function(){
     Facebook.logout(function(response) {
       session.destroy();
+      $location.path('/welcome');
     });
 
   };

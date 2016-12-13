@@ -2,8 +2,8 @@
 
 app.service('session', ['$log', 'localStorage', function($log, localStorage){
 
-  this._user = JSON.parse(localStorage.getItem('session.user'));
-  this._accessToken = JSON.parse(localStorage.getItem('session.accessToken'));
+  this._user = localStorage.getItem('session.user');
+  this._accessToken = localStorage.getItem('session.accessToken');
 
   this.getUser = function(){
     return this._user;
@@ -11,7 +11,7 @@ app.service('session', ['$log', 'localStorage', function($log, localStorage){
 
   this.setUser = function(user){
     this._user = user;
-    localStorage.setItem('session.user', JSON.stringify(user));
+    localStorage.setItem('session.user', user);
     return this;
   };
 

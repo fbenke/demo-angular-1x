@@ -3,15 +3,17 @@
 angular.module('myWorkout.login', ['ngRoute'])
  
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/login', {
-        templateUrl: 'login/login.html',
-        controller: 'LoginCtrl'
-    });
+  $routeProvider.when('/login', {
+      templateUrl: 'login/login.html',
+      controller: 'LoginCtrl'
+  });
 }])
 
 
-.controller('LoginCtrl', ['$scope', 'auth', function($scope, auth) {
-
+.controller('LoginCtrl', ['auth', '$location', function(auth, $location) {
+  if(auth.isLoggedIn()){
+    $location.path('/profile');
+  }   
 
 }]); 
 

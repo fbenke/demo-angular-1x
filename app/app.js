@@ -4,7 +4,8 @@ var app = angular.module('myWorkout', [
   'ngRoute',
   'facebook',
   'myWorkout.welcome',
-  'myWorkout.login'
+  'myWorkout.login',
+  'myWorkout.profile',
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

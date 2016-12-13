@@ -15,7 +15,9 @@
 
   <ul class="menu">
     <li><a href="#!/welcome">Welcome</a></li>
-    <li><a href="#!/login">Log in</a></li>
+    <li><a href="#!/login" ng-show="!auth.isLoggedIn()">Log in</a></li>
+    <li><a href="" ng-click="auth.logOut()" ng-show="auth.isLoggedIn()">Log out</a></li>
+    <li><a href="#!/profile">Profile</a></li>
   </ul>
 
   <div ng-view></div>
@@ -30,5 +32,6 @@
   <script src="services/auth.js"></script>
   <script src="welcome/welcome.js"></script>
   <script src="login/login.js"></script>
+  <script src="profile/profile.js"></script>
 </body>
 </html>
