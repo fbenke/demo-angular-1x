@@ -15,6 +15,5 @@ angular.module('myWorkout.profile', ['ngRoute'])
   if(!auth.isLoggedIn()){
     $location.path('/login');
   }
-
 }]); 
 

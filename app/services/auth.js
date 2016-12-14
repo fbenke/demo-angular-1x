@@ -11,7 +11,7 @@ app.service('auth', ['$location', 'session', 'Facebook', function($location, ses
       if (response.status == 'connected') {
         session.setAccessToken(response.authResponse.accessToken);
         Facebook.api('/me', function(response) {
-          session.setUser(response.name);
+          session.setUser({'name': response.name, 'id': response.id});
           $location.path('/profile');
         });
       } else {
@@ -20,7 +20,7 @@ app.service('auth', ['$location', 'session', 'Facebook', function($location, ses
           if (response.status == 'connected') { 
             session.setAccessToken(response.authResponse.accessToken);
             Facebook.api('/me', function(response) {
-              session.setUser(response.name);
+              session.setUser({'name': response.name, 'id': response.id});
               $location.path('/profile');
             });
           }
