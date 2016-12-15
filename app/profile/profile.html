@@ -5,27 +5,26 @@
 
       <legend>You profile</legend>
 
-      <img src="{{user.photoURL}}">
+      <img src="{{profile.photoURL}}">
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="profileName">Name</label>
         <div class="col-md-4">
-          <input id="profileName" ng-model="profileName" name="profileName" type="text" class="form-control input-md">
+          <input id="profileName" ng-model="profile.nickname" name="profileName" type="text" class="form-control input-md">
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-md-4 control-label" for="profileAge">Age</label>
         <div class="col-md-4">
-          <input id="profileAge" ng-model="profileAge" name="profileAge" type="text" class="form-control input-md">
+          <input id="profileAge" ng-model="profile.age" name="profileAge" type="text" class="form-control input-md">
         </div>
       </div>
 
-      <!-- Button -->
       <div class="form-group">
         <label class="col-md-4 control-label" for="singlebutton"></label>
         <div class="col-md-4">
-          <input id="singlebutton" name="singlebutton" ng-disabled="!user.displayName || !profileAge" class="btn btn-primary" type="submit" value="Submit" />
+          <input id="singlebutton" name="singlebutton" ng-disabled="!profile.nickname || !profile.age" class="btn btn-primary" type="submit" value="Submit" />
         </div>
       </div>
 

@@ -10,27 +10,26 @@ angular.module('myWorkout.profile', ['ngRoute'])
 }])
 
 
-.controller('ProfileCtrl', ['$location', 'auth', 'session', '$scope', function($location, auth, session, $scope) {
+.controller('ProfileCtrl', ['$location', 'auth', 'session', '$scope', '$firebaseObject', function($location, auth, session, $scope, $firebaseObject) {
 
   if(!auth.isLoggedIn()){
-    $location.path('/login');
-  }
 
-  $scope.user = session.getUser();
-  $scope.profileName = session.getUser().displayName;
+    $location.path('/login');
+
+  }else{
+
+    var ref = firebase.database().ref('Profiles/' + session.getUser().uid );
+    $scope.profile = $firebaseObject(ref);
+
+  }
 
   $scope.edit = function() {
 
-    var fb = firebase.database().ref('Profiles/');
+    $scope.profile.name = session.getUser().displayName;
+    $scope.profile.photoURL = session.getUser().photoURL;
+    $scope.profile.email = session.getUser().email;
 
-    fb.push({
-      uid: $scope.user.uid,
-      name: $scope.user.displayName,
-      photoURL: $scope.user.photoURL,
-      email: $scope.user.email,
-      age: $scope.profileAge,
-      '.priority': $scope.user.uid
-    }).then(function(ref) {
+    $scope.profile.$save().then(function(ref) {
       $location.path('/welcome');
     }, function(error) {
       console.log("Error:", error);
