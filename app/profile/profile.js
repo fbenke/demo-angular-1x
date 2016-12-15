@@ -16,18 +16,20 @@ angular.module('myWorkout.profile', ['ngRoute'])
     $location.path('/login');
   }
 
-  $scope.profileName = session.getUser().name;
-
+  $scope.user = session.getUser();
+  $scope.profileName = session.getUser().displayName;
 
   $scope.edit = function() {
 
     var fb = firebase.database().ref('Profiles/');
 
     fb.push({
-      name: $scope.profileName,
-      id: session.getUser().id,
+      uid: $scope.user.uid,
+      name: $scope.user.displayName,
+      photoURL: $scope.user.photoURL,
+      email: $scope.user.email,
       age: $scope.profileAge,
-      '.priority': session.getUser().id
+      '.priority': $scope.user.uid
     }).then(function(ref) {
       $location.path('/welcome');
     }, function(error) {

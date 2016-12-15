@@ -5,6 +5,8 @@
 
       <legend>You profile</legend>
 
+      <img src="{{user.photoURL}}">
+
       <div class="form-group">
         <label class="col-md-4 control-label" for="profileName">Name</label>
         <div class="col-md-4">
@@ -23,7 +25,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="singlebutton"></label>
         <div class="col-md-4">
-          <input id="singlebutton" name="singlebutton" ng-disabled="!profileName || !profileAge" class="btn btn-primary" type="submit" value="Submit" />
+          <input id="singlebutton" name="singlebutton" ng-disabled="!user.displayName || !profileAge" class="btn btn-primary" type="submit" value="Submit" />
         </div>
       </div>
 
