@@ -1,0 +1,19 @@
+
+.masthead-nav > li > a:hover{
+	color: #ff3000;
+  border-bottom-color: #ff3000;
+}
+
+.btn-default{
+  color: #ff3000;
+  background-color: #333;
+  border-color: #ff3000;
+}
+
+.masthead-brand {
+  color: #ff3000;
+}
+
+.btn-facebook{
+  background-color: #4d68a2;
+}
