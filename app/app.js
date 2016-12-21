@@ -4,6 +4,7 @@ var app = angular.module('myWorkout', [
   'ngRoute',
   'firebase',
   'myWorkout.home',
+  'myWorkout.about',
   'myWorkout.profile',
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

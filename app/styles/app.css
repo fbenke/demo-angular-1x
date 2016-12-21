@@ -17,3 +17,14 @@
 .btn-facebook{
   background-color: #4d68a2;
 }
+
+.external_logo{
+	margin-right: 15px;
+	height: 32px;
+	width: 32px;
+}
+
+.btn-default-white:hover{
+  color: white;
+  border-color: white;
+}
