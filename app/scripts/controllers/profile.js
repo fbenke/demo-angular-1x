@@ -4,7 +4,7 @@ angular.module('myWorkout.profile', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/profile', {
-    templateUrl: 'profile/profile.html',
+    templateUrl: 'views/profile.html',
     controller: 'ProfileCtrl'
   });
 }])
