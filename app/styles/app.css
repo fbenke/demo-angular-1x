@@ -1,8 +1,23 @@
+/* NavBar */
 
 .masthead-nav > li > a:hover{
 	color: #ff3000;
   border-bottom-color: #ff3000;
 }
+
+.masthead-brand {
+  color: #ff3000;
+}
+
+.masthead {
+  position: relative;
+}
+
+.site-wrapper-inner {
+  vertical-align: top;
+}
+
+/* Landing Page */
 
 .btn-default{
   color: #ff3000;
@@ -10,12 +25,11 @@
   border-color: #ff3000;
 }
 
-.masthead-brand {
-  color: #ff3000;
-}
+/* About Page*/
 
-.btn-facebook{
-  background-color: #4d68a2;
+.btn-external:hover{
+  color: white;
+  border-color: white;
 }
 
 .external_logo{
@@ -24,7 +38,29 @@
 	width: 32px;
 }
 
-.btn-default-white:hover{
+.btn-white{
   color: white;
   border-color: white;
+}
+
+.btn-white:hover{
+  color: #ff3000;
+}
+
+.active{
+  color: #ff3000;
+}
+
+/* Settings */
+
+.settings-section{
+	margin-top: 40px;
+}
+
+.settings-choice{
+	width: 100%;
+}
+
+.settings-icon{
+	margin-right: 10px;
 }
