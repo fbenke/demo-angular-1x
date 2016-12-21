@@ -3,13 +3,13 @@
 var app = angular.module('myWorkout', [
   'ngRoute',
   'firebase',
-  'myWorkout.welcome',
+  'myWorkout.home',
   'myWorkout.login',
   'myWorkout.profile',
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-  $routeProvider.otherwise({redirectTo: '/welcome'});
+  $routeProvider.otherwise({redirectTo: '/home'});
 }])
 .run(function(){
     var config = {
