@@ -17,7 +17,11 @@ app.service('auth', ['$location', 'session', '$firebaseAuth', '$firebaseObject',
       $location.path('/workout');
 
     }).catch(function(error) {
-      console.log("Authentication failed:", error);
+
+      // TODO: add logging
+      // console.log("Authentication failed:", error);
+
+      $location.path('/error');
     });
   };
 

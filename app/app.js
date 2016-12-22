@@ -7,6 +7,7 @@ var app = angular.module('myWorkout', [
   'myWorkout.about',
   'myWorkout.profile',
   'myWorkout.workout',
+  'myWorkout.error',
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
