@@ -1,32 +1,57 @@
-<div class="container">
-
-	<div class="row row-offcanvas row-offcanvas-right">
-		<img src="{{profile.photoURL}}">
-		<form class="form-horizontal" ng-submit="edit()">
-			<fieldset>
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="profileName">Name</label>
-					<div class="col-md-4">
-						<input id="profileName" ng-model="profile.nickname" name="profileName" type="text" class="form-control input-md">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="profileAge">Age</label>
-					<div class="col-md-4">
-						<input id="profileAge" ng-model="profile.age" name="profileAge" type="text" class="form-control input-md">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="singlebutton"></label>
-					<div class="col-md-4">
-						<input id="singlebutton" name="singlebutton" ng-disabled="!profile.nickname || !profile.age" class="btn btn-primary" type="submit" value="Submit" />
-					</div>
-				</div>
-
-			</fieldset>
-		</form>
+<div class="inner cover">
+	<div class="row settings-section">
+		<div class="col-md-12">
+			<p class="lead">Assess your fitness level</p>
+		</div>
 	</div>
-
+	<div class="row">
+		<div class="col-md-12">
+			<div class="btn-group btn-group-justified" role="group">
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='amateur'}" ng-click="updateDifficulty('amateur')">Amateur</a>
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='medium'}" ng-click="updateDifficulty('medium')">Something in between</a>
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='pro'}" ng-click="updateDifficulty('pro')">Pro</a>
+			</div>
+		</div>
+	</div>
+	<div class="row settings-section">
+		<div class="col-md-12">
+			<p class="lead">Which exercises do you want to do?</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-md-offset-1">
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.burpees}" ng-click="updateSelectedExercises('burpees')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.burpees"></span>Burpees
+			</a>
+		</div>
+		<div class="col-md-5">
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.situps}" ng-click="updateSelectedExercises('situps')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.situps"></span>Situps
+			</a>
+		</div>
+	</div>
+	<div class="row settings-section-small">
+		<div class="col-md-5 col-md-offset-1">
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.pushups}" ng-click="updateSelectedExercises('pushups')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.pushups"></span>Pushups
+			</a>
+		</div>
+		<div class="col-md-5">
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.dips}" ng-click="updateSelectedExercises('dips')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.dips"></span>Dips
+			</a>
+		</div>
+	</div>
+	<div class="row settings-section-small">
+		<div class="col-md-5 col-md-offset-1">
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.pullups}" ng-click="updateSelectedExercises('pullups')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.pullups"></span>Pullups
+			</a>
+		</div>
+		<div class="col-md-5">
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.jjacks}" ng-click="updateSelectedExercises('jjacks')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.jjacks"></span>Jumping Jacks
+			</a>
+		</div>
+	</div>
 </div>

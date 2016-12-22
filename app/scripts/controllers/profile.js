@@ -21,19 +21,23 @@ angular.module('myWorkout.profile', ['ngRoute'])
     var ref = firebase.database().ref('Profiles/' + session.getUser().uid );
     $scope.profile = $firebaseObject(ref);
 
-  }
+ }
 
-  $scope.edit = function() {
-
-    $scope.profile.name = session.getUser().displayName;
-    $scope.profile.photoURL = session.getUser().photoURL;
-    $scope.profile.email = session.getUser().email;
-
-    $scope.profile.$save().then(function(ref) {
-      $location.path('/welcome');
-    }, function(error) {
-      console.log("Error:", error);
-    });
+  $scope.updateDifficulty = function(value){
+    $scope.profile.difficulty = value;
+    $scope.profile.$save();
   };
+
+  $scope.updateSelectedExercises = function(value){
+
+    if ($scope.profile[value] === undefined || $scope.profile[value] === false){
+      $scope.profile[value] = true;
+    }else{
+      $scope.profile[value] = false;
+    }
+    $scope.profile.$save();
+
+  };
+
 
 }]);
