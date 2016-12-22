@@ -7,10 +7,21 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="btn-group btn-group-justified" role="group">
-				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='amateur'}" ng-click="updateDifficulty('amateur')">Amateur</a>
-				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='medium'}" ng-click="updateDifficulty('medium')">Something in between</a>
-				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='pro'}" ng-click="updateDifficulty('pro')">Pro</a>
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='amateur'}" ng-click="updateDifficulty('amateur')">
+					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.difficulty=='amateur'"></span> Amateur
+				</a>
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='medium'}" ng-click="updateDifficulty('medium')">
+					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.difficulty=='medium'"></span> In between
+				</a>
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='pro'}" ng-click="updateDifficulty('pro')">
+					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.difficulty=='pro'"></span>Pro
+				</a>
 			</div>
+		</div>
+	</div>
+	<div class="row settings-section-small" ng-show="noDifficultyError">
+		<div class="col-md-12 form-error">
+			Please choose your fitness level!
 		</div>
 	</div>
 	<div class="row settings-section">
@@ -52,6 +63,16 @@
 			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.jjacks}" ng-click="updateSelectedExercises('jjacks')" role="button">
 				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.jjacks"></span>Jumping Jacks
 			</a>
+		</div>
+	</div>
+	<div class="row settings-section-small" ng-show="noExerciseChosenError">
+		<div class="col-md-12 form-error">
+			Please choose at least one exercise!
+		</div>
+	</div>
+	<div class="row settings-section">
+		<div class="col-md-12">
+			<a class="btn btn-lg btn-white" ng-click="completeProfile()">Ok, let's go!</a>
 		</div>
 	</div>
 </div>

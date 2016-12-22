@@ -14,7 +14,7 @@ app.service('auth', ['$location', 'session', '$firebaseAuth', '$firebaseObject',
 
       session.setAccessToken(firebaseUser.credential.accessToken);
       session.setUser(firebaseUser.user);
-      $location.path('/profile');
+      $location.path('/workout');
 
     }).catch(function(error) {
       console.log("Authentication failed:", error);
@@ -23,7 +23,7 @@ app.service('auth', ['$location', 'session', '$firebaseAuth', '$firebaseObject',
 
   this.logOut = function(){
     session.destroy();
-    $location.path('/welcome');
+    $location.path('/home');
   };
 
 }]);

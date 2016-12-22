@@ -10,6 +10,10 @@ angular.module('myWorkout.home', ['ngRoute'])
 }])
 
 
-.controller('HomeCtrl', [function() {
-	
+.controller('HomeCtrl', ['auth', '$location', function(auth, $location) {
+
+  if(auth.isLoggedIn()){
+    $location.path('/workout');
+  }
+    
 }]); 
