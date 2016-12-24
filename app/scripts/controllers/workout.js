@@ -10,26 +10,17 @@ angular.module('myWorkout.workout', ['ngRoute'])
 }])
 
 
-.controller('WorkoutCtrl', ['$location', 'auth', 'session', '$scope', '$firebaseObject', function($location, auth, session, $scope, $firebaseObject) {
+.controller('WorkoutCtrl', ['$location', 'auth', 'session', '$scope', 'coach', function($location, auth, session, $scope, coach) {
 
   if(!auth.isLoggedIn()){
  
     $location.path('/login');
 
-  }else{
- 
-    var ref = firebase.database().ref('Profiles/' + session.getUser().uid);
-
-    $scope.profile = $firebaseObject(ref);
-
-    $scope.profile.$loaded().then(function(){
-
-      if ($scope.profile.isComplete === undefined || $scope.profile.isComplete === false){
-        $location.path('/profile');
-      }
-    });
-
   }
+
+  $scope.getWorkout = function(){
+    coach.startWorkoutDay();
+  };
 
     
 }]); 

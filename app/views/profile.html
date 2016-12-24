@@ -7,14 +7,14 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="btn-group btn-group-justified" role="group">
-				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='amateur'}" ng-click="updateDifficulty('amateur')">
-					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.difficulty=='amateur'"></span> Amateur
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: settings.difficulty=='amateur'}" ng-click="updateDifficulty('amateur')">
+					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.difficulty=='amateur'"></span> Amateur
 				</a>
-				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='medium'}" ng-click="updateDifficulty('medium')">
-					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.difficulty=='medium'"></span> In between
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: settings.difficulty=='medium'}" ng-click="updateDifficulty('medium')">
+					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.difficulty=='medium'"></span> In between
 				</a>
-				<a class="btn btn-lg btn-white" role="button" ng-class="{active: profile.difficulty=='pro'}" ng-click="updateDifficulty('pro')">
-					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.difficulty=='pro'"></span>Pro
+				<a class="btn btn-lg btn-white" role="button" ng-class="{active: settings.difficulty=='pro'}" ng-click="updateDifficulty('pro')">
+					<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.difficulty=='pro'"></span>Pro
 				</a>
 			</div>
 		</div>
@@ -31,37 +31,37 @@
 	</div>
 	<div class="row">
 		<div class="col-md-5 col-md-offset-1">
-			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.burpees}" ng-click="updateSelectedExercises('burpees')" role="button">
-				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.burpees"></span>Burpees
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: settings.burpees}" ng-click="updateSelectedExercises('burpees')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.burpees"></span>Burpees
 			</a>
 		</div>
 		<div class="col-md-5">
-			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.situps}" ng-click="updateSelectedExercises('situps')" role="button">
-				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.situps"></span>Situps
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: settings.situps}" ng-click="updateSelectedExercises('situps')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.situps"></span>Situps
 			</a>
 		</div>
 	</div>
 	<div class="row settings-section-small">
 		<div class="col-md-5 col-md-offset-1">
-			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.pushups}" ng-click="updateSelectedExercises('pushups')" role="button">
-				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.pushups"></span>Pushups
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: settings.pushups}" ng-click="updateSelectedExercises('pushups')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.pushups"></span>Pushups
 			</a>
 		</div>
 		<div class="col-md-5">
-			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.dips}" ng-click="updateSelectedExercises('dips')" role="button">
-				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.dips"></span>Dips
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: settings.dips}" ng-click="updateSelectedExercises('dips')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.dips"></span>Dips
 			</a>
 		</div>
 	</div>
 	<div class="row settings-section-small">
 		<div class="col-md-5 col-md-offset-1">
-			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.pullups}" ng-click="updateSelectedExercises('pullups')" role="button">
-				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.pullups"></span>Pullups
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: settings.pullups}" ng-click="updateSelectedExercises('pullups')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.pullups"></span>Pullups
 			</a>
 		</div>
 		<div class="col-md-5">
-			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: profile.jjacks}" ng-click="updateSelectedExercises('jjacks')" role="button">
-				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="profile.jjacks"></span>Jumping Jacks
+			<a class="btn btn-lg btn-white settings-choice" ng-class="{active: settings.jjacks}" ng-click="updateSelectedExercises('jjacks')" role="button">
+				<span class="glyphicon glyphicon-ok settings-icon" aria-hidden="true" ng-show="settings.jjacks"></span>Jumping Jacks
 			</a>
 		</div>
 	</div>

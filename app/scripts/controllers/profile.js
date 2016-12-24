@@ -10,78 +10,37 @@ angular.module('myWorkout.profile', ['ngRoute'])
 }])
 
 
-.controller('ProfileCtrl', ['$location', 'auth', 'session', '$scope', '$firebaseObject', function($location, auth, session, $scope, $firebaseObject) {
-
-  var isExerciseChosen = function(){
-
-    var exercises = ['burpees', 'situps', 'pushups', 'pullups', 'jjacks', 'dips'];
-
-    for (var i in exercises) {
-      if ($scope.profile[exercises[i]] === true){
-        return true;
-      }
-    }
-    return false;
-
-  };
-
-  var isDifficultyChosen = function(){
-
-    return $scope.profile.difficulty !== undefined;
-      
-  };
-
-
-  var isComplete = function(){
-
-    if (isDifficultyChosen() && isExerciseChosen()){
-      return true;
-    }
-
-    return false;
-  };
-
+.controller('ProfileCtrl', ['$location', 'auth', 'session', '$scope', 'settings', function($location, auth, session, $scope, settings) {
 
   if(!auth.isLoggedIn()){
 
     $location.path('/login');
 
   }else{
-
-    var ref = firebase.database().ref('Profiles/' + session.getUser().uid );
-    $scope.profile = $firebaseObject(ref);
+    $scope.settings = settings.getSettings(session.getUser().uid);
   }
 
   $scope.updateDifficulty = function(value){
-
-    $scope.profile.difficulty = value;
-    $scope.profile.isComplete = isComplete();
-    $scope.profile.$save();
-
+    $scope.settings.difficulty = value;
+    $scope.settings.$save();
   };
 
   $scope.updateSelectedExercises = function(value){
-
-    if ($scope.profile[value] === undefined || $scope.profile[value] === false){
-      $scope.profile[value] = true;
+    if ($scope.settings[value] === undefined || $scope.settings[value] === false){
+      $scope.settings[value] = true;
     }else{
-      $scope.profile[value] = false;
+      $scope.settings[value] = false;
     }
-
-    $scope.profile.isComplete = isComplete();
-    $scope.profile.$save();
-
+    $scope.settings.$save();
   };
 
   $scope.completeProfile = function(){
-
-    if (isComplete() === true){
+    if (settings.isComplete($scope.settings) === true){
       $location.path('/workout');
     }else{
-      $scope.noExerciseChosenError = !isExerciseChosen();
-      $scope.noDifficultyError = !isDifficultyChosen();
+      $scope.noExerciseChosenError = !settings.isExerciseChosen($scope.settings);
+      $scope.noDifficultyError = !settings.isDifficultyChosen($scope.settings);
     }
-
   };
 
 }]);

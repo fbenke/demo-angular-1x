@@ -72,3 +72,14 @@
 .form-error{
  color: #ff3000; 
 }
+
+.icon-large{
+  font-size: 100px;
+  border: 1px solid;
+  border-radius: 100px;
+  padding: 50px;
+}
+
+.icon-large:hover{
+  color: #ff3000;
+}
