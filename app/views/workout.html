@@ -5,7 +5,8 @@
 	<div ng-show="workout !== null">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<h2> Your exercises for today </h2>
+				<h2 ng-show="!complete"> Your exercises for today </h2>
+				<h2 ng-show="complete"> Finished! </h2>
 			</div>
 		</div>
 		<div class="row settings-section-small" ng-repeat="exercise in workout">
@@ -25,7 +26,7 @@
 		</div>
 		<div class="row settings-section-small">
 			<div class="col-md-8 col-md-offset-2">
-			  <a class="btn btn-lg btn-white" ng-click="">Share on Facebook</a>
+			  <a class="btn btn-lg btn-white" ng-click="share()">Share on Facebook</a>
 			  <a class="btn btn-lg btn-white" ng-click="startNewWorkout()"><span class="glyphicon glyphicon-fire settings-icon"></span>Start a new day</a>
 		  </div>
 		</div>

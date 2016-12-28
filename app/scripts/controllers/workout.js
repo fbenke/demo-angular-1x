@@ -10,7 +10,8 @@ angular.module('myWorkout.workout', ['ngRoute'])
 }])
 
 
-.controller('WorkoutCtrl', ['$location', 'auth', 'session', '$scope', 'coach', function($location, auth, session, $scope, coach) {
+.controller('WorkoutCtrl', ['$location', 'auth', 'session', '$scope', 'coach', 'Socialshare', 'stats', 'FACEBOOK_APP_ID',
+  function($location, auth, session, $scope, coach, Socialshare, stats, FACEBOOK_APP_ID) {
 
   if(!auth.isLoggedIn()){
     $location.path('/login');
@@ -37,6 +38,22 @@ angular.module('myWorkout.workout', ['ngRoute'])
     $scope.workouts.$save(lastIndex).then(function(ref){
       $scope.complete = coach.workoutCompleted($scope.workout);
     });
+  };
+
+  $scope.share = function(){
+
+    var shareText = stats.getWorkoutSummaryText($scope.workout);
+
+    Socialshare.share({'provider': 'facebook',
+     'attrs': {
+        'socialshareVia': FACEBOOK_APP_ID,
+        'socialshareType': 'feed',
+        'socialshareUrl': 'github.com/fbenke',
+        'socialshareText': 'I have just completed a workout on muscle_up!',
+        'socialshareDescription': shareText}
+    });
+
+
   };
    
 }]); 

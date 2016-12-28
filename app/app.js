@@ -3,6 +3,7 @@
 var app = angular.module('myWorkout', [
   'ngRoute',
   'firebase',
+  '720kb.socialshare',
   'myWorkout.home',
   'myWorkout.about',
   'myWorkout.profile',
@@ -27,4 +28,6 @@ var app = angular.module('myWorkout', [
 .run(['$rootScope', 'auth', 'session', function($rootScope, auth, session){
   $rootScope.auth = auth;
   $rootScope.session = session; 
-}]);
+}])
+.constant('FACEBOOK_APP_ID', '153960288417821');
+
