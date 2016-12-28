@@ -13,9 +13,7 @@ angular.module('myWorkout.profile', ['ngRoute'])
 .controller('ProfileCtrl', ['$location', 'auth', 'session', '$scope', 'settings', function($location, auth, session, $scope, settings) {
 
   if(!auth.isLoggedIn()){
-
     $location.path('/login');
-
   }else{
     $scope.settings = settings.getSettings(session.getUser().uid);
   }

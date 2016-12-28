@@ -18,12 +18,12 @@ angular.module('myWorkout.workout', ['ngRoute'])
     coach.getWorkouts(session.getUser().uid).then(function(workouts){
       $scope.workouts = workouts;
       $scope.workout = coach.getCurrentWorkout(workouts);
-      $scope.complete = coach.workoutCompleted($scope.workout)
+      $scope.complete = coach.workoutCompleted($scope.workout);
     });
   }
 
   $scope.startNewWorkout = function(){
-    $scope.complete = false;
+    $scope.complete = false;    
     coach.startNewWorkout(session.getUser().uid).then(function(workout){
       $scope.workout = workout;
     });

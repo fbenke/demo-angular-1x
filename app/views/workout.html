@@ -3,6 +3,11 @@
 		<span class="glyphicon glyphicon-fire icon-large pulse" aria-hidden="true" ng-click="startNewWorkout()"></span>
 	</h1>
 	<div ng-show="workout !== null">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h2> Your exercises for today </h2>
+			</div>
+		</div>
 		<div class="row settings-section-small" ng-repeat="exercise in workout">
 			<div class="col-md-8 col-md-offset-2">
 				<a class="btn btn-lg btn-white settings-choice" ng-class="{complete: exercise.completed}" role="button" ng-click="completeExercise(exercise.id)">
@@ -24,9 +29,5 @@
 			  <a class="btn btn-lg btn-white" ng-click="startNewWorkout()"><span class="glyphicon glyphicon-fire settings-icon"></span>Start a new day</a>
 		  </div>
 		</div>
-
 	</div>
-
-
-
 </div>
