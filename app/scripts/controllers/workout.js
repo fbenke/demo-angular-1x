@@ -13,14 +13,30 @@ angular.module('myWorkout.workout', ['ngRoute'])
 .controller('WorkoutCtrl', ['$location', 'auth', 'session', '$scope', 'coach', function($location, auth, session, $scope, coach) {
 
   if(!auth.isLoggedIn()){
- 
     $location.path('/login');
-
+  }else{
+    coach.getWorkouts(session.getUser().uid).then(function(workouts){
+      $scope.workouts = workouts;
+      $scope.workout = coach.getCurrentWorkout(workouts);
+      $scope.complete = coach.workoutCompleted($scope.workout)
+    });
   }
 
-  $scope.getWorkout = function(){
-    coach.startWorkoutDay();
+  $scope.startNewWorkout = function(){
+    $scope.complete = false;
+    coach.startNewWorkout(session.getUser().uid).then(function(workout){
+      $scope.workout = workout;
+    });
   };
 
-    
+
+  $scope.completeExercise = function(exerciseId){
+    $scope.workout[exerciseId-1].completed = true;
+    var lastIndex = $scope.workouts.length-1;
+    $scope.workouts[lastIndex] = $scope.workout;
+    $scope.workouts.$save(lastIndex).then(function(ref){
+      $scope.complete = coach.workoutCompleted($scope.workout);
+    });
+  };
+   
 }]); 

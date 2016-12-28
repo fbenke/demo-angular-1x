@@ -43,11 +43,11 @@
   border-color: white;
 }
 
-.btn-white:hover{
+.btn-white:hover, .icon-large:hover{
   color: #ff3000;
 }
 
-.active{
+.active, .complete, .form-error{
   color: #ff3000;
 }
 
@@ -69,17 +69,9 @@
 	margin-right: 10px;
 }
 
-.form-error{
- color: #ff3000; 
-}
-
 .icon-large{
   font-size: 100px;
   border: 1px solid;
   border-radius: 100px;
   padding: 50px;
-}
-
-.icon-large:hover{
-  color: #ff3000;
 }

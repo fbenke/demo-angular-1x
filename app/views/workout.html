@@ -1,5 +1,32 @@
 <div class="inner cover">
-	<h1>
-		<span class="glyphicon glyphicon-fire icon-large pulse" aria-hidden="true" ng-click="getWorkout()"></span>
+	<h1 ng-show="workout === null">
+		<span class="glyphicon glyphicon-fire icon-large pulse" aria-hidden="true" ng-click="startNewWorkout()"></span>
 	</h1>
+	<div ng-show="workout !== null">
+		<div class="row settings-section-small" ng-repeat="exercise in workout">
+			<div class="col-md-8 col-md-offset-2">
+				<a class="btn btn-lg btn-white settings-choice" ng-class="{complete: exercise.completed}" role="button" ng-click="completeExercise(exercise.id)">
+					<span class="pull-left glyphicon glyphicon-ok complete" aria-hidden="true" ng-show="exercise.completed"></span>
+					{{exercise.number}} {{exercise.name}}
+				</a>
+			</div>
+		</div>
+	</div>
+	<div ng-show="complete">
+		<div class="row settings-section">
+			<div class="col-md-8 col-md-offset-2">
+				Congrats, you've completed all workouts for today!
+			</div>
+		</div>
+		<div class="row settings-section-small">
+			<div class="col-md-8 col-md-offset-2">
+			  <a class="btn btn-lg btn-white" ng-click="">Share on Facebook</a>
+			  <a class="btn btn-lg btn-white" ng-click="startNewWorkout()"><span class="glyphicon glyphicon-fire settings-icon"></span>Start a new day</a>
+		  </div>
+		</div>
+
+	</div>
+
+
+
 </div>
